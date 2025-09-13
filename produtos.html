@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos | Zentta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="imagens/simb.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'zentta-yellow': '#FFD700',
+                        'zentta-blue': '#1E3A8A',
+                        'zentta-light-yellow': '#FFF9C4',
+                        'zentta-dark-blue': '#0F172A',
+                        'whatsapp-green': '#25D366'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15); }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .float-title {
+            animation: float 2s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .modal-bg {
+            background: rgba(0,0,0,0.6);
+        }
+        .modal-card {
+            animation: modalIn 0.3s;
+        }
+        @keyframes modalIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-zentta-yellow">
+    <!-- Header Zentta -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="imagens/logo-zentta.png" alt="Logo da Zentta" class="w-24 h-auto">
+                </div>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Início</a>
+                    <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Produtos</a>
+                    <a href="index.html#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Contato</a>
+                    <a href="carrinho.html">
+                        
+                    </a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden text-zentta-blue">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-40 p-6 flex flex-col items-start space-y-4 mobile-menu">
+            <button id="close-menu-btn" class="self-end text-zentta-blue mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="index.html#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Início</a>
+            <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Produtos</a>
+            <a href="index.html#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Contato</a>
+            <a href="carrinho.html" class="text-zentta-blue font-medium transition-colors w-full">🛒 Carrinho (<span id="cart-count-mobile">0</span>)</a>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-12">
+        <h2 class="text-4xl font-bold text-zentta-blue mb-8 text-center">Produtos</h2>
+        
+        <!-- 1. Roupa & Higiene Pessoal -->
+        <h3 class="text-2xl font-bold text-white drop-shadow-lg mb-6 mt-12">Roupa & Higiene Pessoal</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <!-- Amaciantes -->
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/amaciantes-blue.png" alt="Amaciante Blue" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Amaciante Blue</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Perfume suave e maciez para suas roupas.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Amaciante Blue"
+                        data-img="imagens/amaciantes-blue.png"
+                        data-desc="Perfume suave e maciez para suas roupas."
+                        data-preco-2l="Link do 2L aqui"
+                        data-preco-5l="Link do 5l aqui"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/amaciantes-premium.png" alt="Amaciante Premium" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Amaciante Premium</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Maciez intensa e fragrância sofisticada.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Amaciante Premium"
+                        data-img="imagens/amaciantes-premium.png"
+                        data-desc="Maciez intensa e fragrância sofisticada."
+                        data-preco-2l="Link do 2l aqui"
+                        data-preco-5l="Link do 5l aqui"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <!-- Lava Roupas -->
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/lava-roupas-comum.png" alt="Lava Roupas Comum" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Lava Roupas Comum</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza eficiente para o dia a dia.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Lava Roupas Comum"
+                        data-img="imagens/lava-roupas-comum.png"
+                        data-desc="Limpeza eficiente para o dia a dia."
+                        data-preco-2l="Link do 2l aqui"
+                        data-preco-5l="Link do 5l aqui"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/lava-roupas-coco.png" alt="Lava Roupas Coco" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Lava Roupas Coco</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Com óleo de coco para roupas delicadas.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Lava Roupas Coco"
+                        data-img="imagens/lava-roupas-coco.png"
+                        data-desc="Com óleo de coco para roupas delicadas."
+                        data-preco-2l="13.90"
+                        data-preco-5l="29.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/lava-roupas-green.png" alt="Lava Roupas Green Power" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Lava Roupas Green Power</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza ecológica e poderosa.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Lava Roupas Green Power"
+                        data-img="imagens/lava-roupas-green.png"
+                        data-desc="Limpeza ecológica e poderosa."
+                        data-preco-2l="14.90"
+                        data-preco-5l="32.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <!-- Passa Fácil -->
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/passa-facil.png" alt="Passa Fácil" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Passa Fácil</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Facilita o passar e protege as fibras.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Passa Fácil"
+                        data-img="imagens/passa-facil.png"
+                        data-desc="Facilita o passar e protege as fibras."
+                        data-preco-2l="11.90"
+                        data-preco-5l="25.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <!-- Sabonetes Líquidos -->
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/sabonete-buque.png" alt="Sabonete Líquido Buquê Azul" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Sabonete Líquido Buquê Azul</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Hidratação e perfume delicado.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Sabonete Líquido Buquê Azul"
+                        data-img="imagens/sabonete-buque.png"
+                        data-desc="Hidratação e perfume delicado."
+                        data-preco-2l="9.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/sabonete-erva.png" alt="Sabonete Líquido Erva Doce" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Sabonete Líquido Erva Doce</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Refrescância e suavidade para a pele.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Sabonete Líquido Erva Doce"
+                        data-img="imagens/sabonete-erva.png"
+                        data-desc="Refrescância e suavidade para a pele."
+                        data-preco-2l="9.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/sabonete-frutas.png" alt="Sabonete Líquido Frutas Vermelhas" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Sabonete Líquido Frutas Vermelhas</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Fragrância marcante e hidratação.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Sabonete Líquido Frutas Vermelhas"
+                        data-img="imagens/sabonete-frutas.png"
+                        data-desc="Fragrância marcante e hidratação."
+                        data-preco-2l="9.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/sabonete-pistache.png" alt="Sabonete Líquido Pistache" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Sabonete Líquido Pistache</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Nutrição e perfume exótico.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Sabonete Líquido Pistache"
+                        data-img="imagens/sabonete-pistache.png"
+                        data-desc="Nutrição e perfume exótico."
+                        data-preco-2l="9.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Desinfecção & Cloro -->
+        <h3 class="text-2xl font-bold text-white drop-shadow-lg mb-6 mt-12">Desinfecção & Cloro</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/agua-sanitaria.png" alt="Água Sanitária" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Água Sanitária</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Desinfecção e branqueamento eficiente.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Água Sanitária"
+                        data-img="imagens/agua-sanitaria.png"
+                        data-desc="Desinfecção e branqueamento eficiente."
+                        data-preco-2l="7.90"
+                        data-preco-5l="17.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/cloro-liquido.png" alt="Cloro Líquido" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Cloro Líquido</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza pesada e desinfecção.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Cloro Líquido"
+                        data-img="imagens/cloro-liquido.png"
+                        data-desc="Limpeza pesada e desinfecção."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/cloro-gel.png" alt="Cloro Gel" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Cloro Gel</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Gel para limpeza profunda.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Cloro Gel"
+                        data-img="imagens/cloro-gel.png"
+                        data-desc="Gel para limpeza profunda."
+                        data-preco-2l="9.90"
+                        data-preco-5l="21.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/cloro-gel-lavanda.png" alt="Cloro Gel Lavanda" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Cloro Gel Lavanda</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Gel com fragrância de lavanda.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Cloro Gel Lavanda"
+                        data-img="imagens/cloro-gel-lavanda.png"
+                        data-desc="Gel com fragrância de lavanda."
+                        data-preco-2l="10.90"
+                        data-preco-5l="23.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <!-- Desinfetantes -->
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/desinfetante-algas.png" alt="Desinfetante Algas" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Desinfetante Algas</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Fragrância refrescante de algas.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Desinfetante Algas"
+                        data-img="imagens/desinfetante-algas.png"
+                        data-desc="Fragrância refrescante de algas."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/desinfetante-bambu.png" alt="Desinfetante Bambu" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Desinfetante Bambu</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Aroma natural e ação antibacteriana.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Desinfetante Bambu"
+                        data-img="imagens/desinfetante-bambu.png"
+                        data-desc="Aroma natural e ação antibacteriana."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/desinfetante-lavanda.png" alt="Desinfetante Lavanda" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Desinfetante Lavanda</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Perfume relaxante e limpeza.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Desinfetante Lavanda"
+                        data-img="imagens/desinfetante-lavanda.png"
+                        data-desc="Perfume relaxante e limpeza."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/desinfetante-talco.png" alt="Desinfetante Talco" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Desinfetante Talco</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Aroma suave e proteção.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Desinfetante Talco"
+                        data-img="imagens/desinfetante-talco.png"
+                        data-desc="Aroma suave e proteção."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/desinfetante-romance.png" alt="Desinfetante Romance" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Desinfetante Romance</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Fragrância envolvente e duradoura.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Desinfetante Romance"
+                        data-img="imagens/desinfetante-romance.png"
+                        data-desc="Fragrância envolvente e duradoura."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/desinfetante-cereja.png" alt="Desinfetante Cereja & Avelã" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Desinfetante Cereja & Avelã</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Aroma sofisticado e proteção.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Desinfetante Cereja & Avelã"
+                        data-img="imagens/desinfetante-cereja.png"
+                        data-desc="Aroma sofisticado e proteção."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/desinfetante-rico.png" alt="Desinfetante Cheiro de Rico" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Desinfetante Cheiro de Rico</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Fragrância exclusiva e marcante.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Desinfetante Cheiro de Rico"
+                        data-img="imagens/desinfetante-rico.png"
+                        data-desc="Fragrância exclusiva e marcante."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Limpeza Geral -->
+        <h3 class="text-2xl font-bold text-white drop-shadow-lg mb-6 mt-12">Limpeza Geral</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/detergente.png" alt="Detergente" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Detergente</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza eficiente para louças e superfícies.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Detergente"
+                        data-img="imagens/detergente.png"
+                        data-desc="Limpeza eficiente para louças e superfícies."
+                        data-preco-2l="6.90"
+                        data-preco-5l="14.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/multiuso.png" alt="Limpador Multiuso" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpador Multiuso</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Versatilidade para todas as superfícies.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpador Multiuso"
+                        data-img="imagens/multiuso.png"
+                        data-desc="Versatilidade para todas as superfícies."
+                        data-preco-2l="8.90"
+                        data-preco-5l="18.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <!-- Limpador Álcool -->
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/alcool-algas.png" alt="Limpador Álcool Algas" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpador Álcool Algas</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza rápida e perfume refrescante.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpador Álcool Algas"
+                        data-img="imagens/alcool-algas.png"
+                        data-desc="Limpeza rápida e perfume refrescante."
+                        data-preco-2l="7.90"
+                        data-preco-5l="16.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/alcool-glamour.png" alt="Limpador Álcool Glamour" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpador Álcool Glamour</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza e fragrância sofisticada.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpador Álcool Glamour"
+                        data-img="imagens/alcool-glamour.png"
+                        data-desc="Limpeza e fragrância sofisticada."
+                        data-preco-2l="7.90"
+                        data-preco-5l="16.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/alcool-cereja.png" alt="Limpador Álcool Cereja & Avelã" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpador Álcool Cereja & Avelã</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza e aroma marcante.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpador Álcool Cereja & Avelã"
+                        data-img="imagens/alcool-cereja.png"
+                        data-desc="Limpeza e aroma marcante."
+                        data-preco-2l="7.90"
+                        data-preco-5l="16.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <!-- Limpador Pinho Gel -->
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/pinho-gel.png" alt="Limpador Pinho Gel" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpador Pinho Gel</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza profunda e aroma de pinho.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpador Pinho Gel"
+                        data-img="imagens/pinho-gel.png"
+                        data-desc="Limpeza profunda e aroma de pinho."
+                        data-preco-2l="8.90"
+                        data-preco-5l="18.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <!-- Limpador Porcelanatos -->
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/porcelanato.png" alt="Limpador Porcelanatos" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpador Porcelanatos</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Brilho e proteção para pisos delicados.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpador Porcelanatos"
+                        data-img="imagens/porcelanato.png"
+                        data-desc="Brilho e proteção para pisos delicados."
+                        data-preco-2l="9.90"
+                        data-preco-5l="21.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Limpeza Especializada -->
+        <h3 class="text-2xl font-bold text-white drop-shadow-lg mb-6 mt-12">Limpeza Especializada</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/limpa-pisos.png" alt="Limpa Pisos" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpa Pisos</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza profunda para todos os tipos de piso.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpa Pisos"
+                        data-img="imagens/limpa-pisos.png"
+                        data-desc="Limpeza profunda para todos os tipos de piso."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/limpa-vidros.png" alt="Limpa Vidros" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpa Vidros</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Transparência sem manchas.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpa Vidros"
+                        data-img="imagens/limpa-vidros.png"
+                        data-desc="Transparência sem manchas."
+                        data-preco-2l="7.90"
+                        data-preco-5l="16.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/limpa-pedras.png" alt="Limpa Pedras" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpa Pedras</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Remove sujeiras e manchas de pedras.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpa Pedras"
+                        data-img="imagens/limpa-pedras.png"
+                        data-desc="Remove sujeiras e manchas de pedras."
+                        data-preco-2l="9.90"
+                        data-preco-5l="21.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/limpa-aluminio.png" alt="Limpa Alumínio" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Limpa Alumínio</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Brilho e proteção para utensílios.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Limpa Alumínio"
+                        data-img="imagens/limpa-aluminio.png"
+                        data-desc="Brilho e proteção para utensílios."
+                        data-preco-2l="8.90"
+                        data-preco-5l="19.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Linha Profissional & Automotiva -->
+        <h3 class="text-2xl font-bold text-white drop-shadow-lg mb-6 mt-12">Linha Profissional & Automotiva</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/desengordurante.png" alt="Desengordurante Limpeza Pesada" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Desengordurante Limpeza Pesada</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Remove gordura pesada de superfícies.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Desengordurante Limpeza Pesada"
+                        data-img="imagens/desengordurante.png"
+                        data-desc="Remove gordura pesada de superfícies."
+                        data-preco-2l="12.90"
+                        data-preco-5l="27.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/flotador.png" alt="Flotador Universal" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Flotador Universal</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza universal para ambientes profissionais.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Flotador Universal"
+                        data-img="imagens/flotador.png"
+                        data-desc="Limpeza universal para ambientes profissionais."
+                        data-preco-2l="14.90"
+                        data-preco-5l="31.90"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/soluupamm.png" alt="Soluupamm" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Soluupamm</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Solução profissional para limpeza pesada.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Soluupamm"
+                        data-img="imagens/soluupamm.png"
+                        data-desc="Solução profissional para limpeza pesada."
+                        data-preco-2l="Link do 2l aqui"
+                        data-preco-5l="Link do 5l aqui"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                <img src="imagens/lava-autos.png" alt="Lava Autos com Cera" class="w-full h-48 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2"/>
+                <div class="p-6 w-full flex-1 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-zentta-blue mb-2">Lava Autos com Cera</h4>
+                        <p class="text-gray-600 mb-4 min-h-[48px]">Limpeza e proteção para veículos.</p>
+                    </div>
+                    <button class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-4 w-full"
+                        data-nome="Lava Autos com Cera"
+                        data-img="imagens/lava-autos.png"
+                        data-desc="Limpeza e proteção para veículos."
+                        data-preco-2l="Link do 2l aqui"
+                        data-preco-5l="Link do 5l aqui"
+                    >Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de variação -->
+    <div id="modal-bg" class="fixed inset-0 flex items-center justify-center z-50 hidden modal-bg">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full modal-card relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-zentta-blue text-2xl font-bold">&times;</button>
+            <img id="modal-img" src="" alt="" class="w-40 h-40 object-contain mx-auto mb-4">
+            <h4 id="modal-nome" class="text-2xl font-bold text-zentta-blue mb-2 text-center"></h4>
+            <p id="modal-desc" class="text-gray-600 mb-4 text-center"></p>
+            <div class="flex flex-col gap-4">
+                <button id="add-2l" class="bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors w-full"></button>
+                <button id="add-5l" class="bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors w-full"></button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-zentta-dark-blue text-white py-12 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h4 class="text-2xl font-bold text-zentta-yellow mb-4">Zentta</h4>
+            <p class="text-gray-300">Sua Casa Merece Esse Cuidado.</p>
+            <p class="text-gray-400 mt-4">© 2025 Zentta. Todos os direitos reservados.</p>
+            <p class="text-gray-400 mt-2">Desenvolvido por Danillo Henrique Ferreira.</p>
+        </div>
+    </footer>
+    <script>
+        // Menu mobile
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenuBtn = document.getElementById("close-menu-btn");
+
+        mobileMenuBtn?.addEventListener("click", function() {
+            mobileMenu.classList.add("active");
+        });
+        closeMenuBtn?.addEventListener("click", function() {
+            mobileMenu.classList.remove("active");
+        });
+
+        // Modal lógica
+        const modalBg = document.getElementById("modal-bg");
+        const closeModal = document.getElementById("close-modal");
+        const modalImg = document.getElementById("modal-img");
+        const modalNome = document.getElementById("modal-nome");
+        const modalDesc = document.getElementById("modal-desc");
+        const add2l = document.getElementById("add-2l");
+        const add5l = document.getElementById("add-5l");
+        let cartCount = 0;
+        const cartCountSpan = document.getElementById("cart-count");
+        const cartCountMobile = document.getElementById("cart-count-mobile");
+
+        document.querySelectorAll(".btn-comprar").forEach(btn => {
+            btn.addEventListener("click", function() {
+                modalImg.src = btn.dataset.img;
+                modalNome.textContent = btn.dataset.nome;
+                modalDesc.textContent = btn.dataset.desc;
+                add2l.textContent = `Adicionar ${btn.dataset.nome} 2L - R$ ${btn.dataset.preco2l || btn.dataset.preco_2l}`;
+                add5l.textContent = `Adicionar ${btn.dataset.nome} 5L - R$ ${btn.dataset.preco5l || btn.dataset.preco_5l}`;
+                add2l.onclick = () => {
+                    cartCount++;
+                    if (cartCountSpan) cartCountSpan.textContent = cartCount;
+                    if (cartCountMobile) cartCountMobile.textContent = cartCount;
+                    modalBg.classList.add("hidden");
+                };
+                add5l.onclick = () => {
+                    cartCount++;
+                    if (cartCountSpan) cartCountSpan.textContent = cartCount;
+                    if (cartCountMobile) cartCountMobile.textContent = cartCount;
+                    modalBg.classList.add("hidden");
+                };
+                modalBg.classList.remove("hidden");
+            });
+        });
+        closeModal.addEventListener("click", () => {
+            modalBg.classList.add("hidden");
+        });
+        modalBg.addEventListener("click", (e) => {
+            if (e.target === modalBg) modalBg.classList.add("hidden");
+        });
+    </script>
+</body>
+</html>
