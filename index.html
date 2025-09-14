@@ -87,7 +87,6 @@
 </head>
 <body class="bg-zentta-yellow">
 
-    <!-- Header -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4 py-4">
         <div class="flex items-center justify-between">
@@ -95,15 +94,12 @@
                 <h1 class="text-4xl font-bold text-zentta-blue"></h1>
                 <img src="imagens/logo-zentta.png" alt="Logo da Zentta" class="w-24 h-auto">
             </div>
-            <!-- Menu de Navegação para Desktop (agora à direita) -->
-<nav class="hidden md:flex space-x-8 items-center">
+            <nav class="hidden md:flex space-x-8 items-center">
     <a href="#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Início</a>
     <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Produtos</a>
     <a href="#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Contato</a>
 </nav>
-<!-- ...existing code...
-            <!-- Botão de Hambúrguer para Mobile -->
-            <button id="mobile-menu-btn" class="md:hidden text-zentta-blue">
+<button id="mobile-menu-btn" class="md:hidden text-zentta-blue">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
@@ -112,7 +108,6 @@
     </div>
 </header>
 
-    <!-- Menu Mobile (oculto por padrão) -->
     <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-40 p-6 flex flex-col items-start space-y-4 mobile-menu">
         <button id="close-menu-btn" class="self-end text-zentta-blue mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
@@ -126,20 +121,15 @@
         <a href="#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Contato</a>
     </div>
 
-    <!-- Banner Principal (Primeira Tela) -->
-    <section id="home" class="relative w-full h-72 md:h-[500px] flex items-center justify-center text-center overflow-hidden">
-        <!-- Banner 1 (visível por padrão) -->
+    <section id="home" class="relative w-full h-[32rem] md:h-[500px] flex items-center justify-center text-center overflow-hidden">
         <img src="imagens/banner.png" alt="Mascote da Zentta e linha de produtos de limpeza" class="banner-slide active">
-        <!-- Banner 2 (oculto por padrão) -->
         <img src="imagens/banner2.png" alt="Segundo banner com promoção ou outro produto" class="banner-slide">
-        <!-- Botões de navegação do banner -->
         <div class="banner-controls">
             <button id="banner-prev" class="banner-btn" aria-label="Anterior">&#8592;</button>
             <button id="banner-next" class="banner-btn" aria-label="Próximo">&#8594;</button>
         </div>
     </section>
 
-    <!-- Conteúdo da Home (Segunda Tela) -->
     <section class="bg-zentta-light-yellow py-4 md:py-6 text-center">
         <div class="container mx-auto px-4">
             <h2 class="text-5xl md:text-6xl font-bold text-zentta-blue mb-6">
@@ -158,26 +148,21 @@
             </div>
 
 
-            <!-- ...CATEGORIA DE PRODUTOS... -->
             <div class="mt-12">
     <h3 class="text-3xl font-bold text-zentta-blue mb-8">Categorias de Produtos</h3>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <!-- Card Roupas & Higiene Pessoal -->
         <a href="produtos.html#roupas-higiene-pessoal" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
             <img src="imagens/roupas.png" alt="Roupas & Higiene Pessoal" class="w-64 h-64 mb-4 object-contain">
             <h4 class="text-xl font-semibold text-zentta-blue">Roupas & Higiene Pessoal</h4>
         </a>
-        <!-- Card Desinfecção & Cloro -->
         <a href="produtos.html#desinfeccao-cloro" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
             <img src="imagens/cloro.png" alt="Desinfecção & Cloro" class="w-64 h-64 mb-4 object-contain">
             <h4 class="text-xl font-semibold text-zentta-blue">Desinfecção & Cloro</h4>
         </a>
-        <!-- Card Limpeza Geral -->
         <a href="produtos.html#limpeza-geral" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
             <img src="imagens/geral.png" alt="Limpeza Geral" class="w-64 h-64 mb-4 object-contain">
             <h4 class="text-xl font-semibold text-zentta-blue">Limpeza Geral</h4>
         </a>
-        <!-- Card Limpeza Especializada -->
         <a href="produtos.html#limpeza-especializada" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
             <img src="imagens/especializada.png" alt="Limpeza Especializada" class="w-64 h-64 mb-4 object-contain">
             <h4 class="text-xl font-semibold text-zentta-blue">Limpeza Especializada</h4>
@@ -185,12 +170,10 @@
     </div>
 </div>
 
-    <!-- Seção de Ofertas (nova) -->
     <section id="ofertas" class="py-16 pb-24 bg-white">
         <div class="container mx-auto px-4 text-center">
             <h3 class="text-4xl font-bold text-zentta-blue mb-12">Planos De Assinatura</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
-                <!-- Kit Basic Zentta -->
                 <div class="product-card bg-zentta-light-yellow rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center">
                     <img src="imagens/basic.png" alt="Kit Basic Zentta"
                         class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
@@ -207,7 +190,6 @@
 </a>
                     </div>
                 </div>
-                <!-- Kit Essenza (Mais Popular) -->
                 <div class="product-card bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-zentta-dark-blue flex flex-col items-center relative">
                     <span class="absolute top-4 left-1/2 -translate-x-1/2 bg-zentta-dark-blue text-zentta-yellow px-6 py-2 rounded-full text-lg font-extrabold shadow-lg border-2 border-zentta-yellow z-10">
                         ⭐ Mais Popular
@@ -227,7 +209,6 @@
 </a>
                     </div>
                 </div>
-                <!-- Kit Pro Zentta -->
                 <div class="product-card bg-zentta-light-yellow rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center">
                     <img src="imagens/pro.png" alt="Kit Pro Zentta"
                         class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
@@ -247,15 +228,12 @@
             </div>
         </div>
 
-        <!-- ...existing code... -->
-<section class="bg-zentta-yellow py-16 mt-16">
+        <section class="bg-zentta-yellow py-16 mt-16">
     <div class="container mx-auto px-4">
-        <div class="bg-white rounded-3xl shadow-lg p-10 flex flex-col md:flex-row justify-between items-start gap-12">
-            <!-- Logo -->
+        <div class="bg-white rounded-3xl shadow-lg p-10 flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
             <div class="flex flex-col items-center md:items-start md:w-1/3">
                 <img src="imagens/logo-zentta2.png" alt="Logo Zentta" class="w-52 mb-0">
             </div>
-            <!-- Contato -->
             <div class="flex flex-col items-center md:items-start md:w-1/3">
                 <h3 class="text-2xl font-bold text-zentta-dark-blue mb-4">CONTATO</h3>
                 <div class="flex items-center text-zentta-dark-blue mb-2">
@@ -275,7 +253,6 @@
                     <span class="text-zentta-dark-blue hover:text-zentta-blue text-lg font-medium">Instagram</span>
                 </a>
             </div>
-            <!-- Links Úteis -->
             <div class="flex flex-col items-center md:items-start md:w-1/3">
                 <h3 class="text-2xl font-bold text-zentta-dark-blue mb-4">LINKS ÚTEIS</h3>
                 <a href="#" class="text-zentta-dark-blue mb-2 hover:text-zentta-blue">Política de Privacidade</a>
@@ -286,11 +263,7 @@
         </div>
     </div>
 </section>
-<!-- ...existing code... -->
-
-
-        <!-- Rodapé (mantido) -->
-        <div class="w-full h-24"></div>
+<div class="w-full h-24"></div>
         <footer id="contato" class="bg-zentta-dark-blue text-white py-12">
             <div class="container mx-auto px-4 text-center">
                 <h4 class="text-2xl font-bold text-zentta-yellow mb-4">Zentta</h4>
@@ -375,4 +348,5 @@
         timer = setInterval(nextSlide, 4000);
     </script>
 </body>
+
 </html>
