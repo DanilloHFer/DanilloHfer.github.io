@@ -1,348 +1,238 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zentta</title>
-    <meta name="description" content="Zentta Sua Casa Merece Esse Cuidado. Produtos de qualidade, preços acessíveis e atendimento excepcional. Confira nossas ofertas!">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="imagens/simb.png">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'zentta-yellow': '#FFD700',
-                        'zentta-blue': '#1E3A8A',
-                        'zentta-light-yellow': '#FFF9C4',
-                        'zentta-dark-blue': '#0F172A',
-                        'whatsapp-green': '#25D366'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .hover-scale { transition: transform 0.3s ease; }
-        .hover-scale:hover { transform: scale(1.05); }
-        .product-card { transition: all 0.3s ease; }
-        .product-card:hover { box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15); }
-        .mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        .banner-slide {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(.4,0,.2,1), opacity 0.8s cubic-bezier(.4,0,.2,1);
-            opacity: 0;
-            z-index: 1;
-            transform: translateX(100%);
-        }
-        .banner-slide.active {
-            opacity: 1;
-            z-index: 2;
-            transform: translateX(0);
-        }
-        .banner-slide.prev {
-            opacity: 0;
-            z-index: 1;
-            transform: translateX(-100%);
-        }
-        .banner-controls {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            z-index: 10;
-            pointer-events: none;
-        }
-        .banner-btn {
-            background: rgba(30,58,138,0.7);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            font-size: 2rem;
-            cursor: pointer;
-            pointer-events: auto;
-            transition: background 0.2s;
-        }
-        .banner-btn:hover {
-            background: #1E3A8A;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zentta</title>
+    <meta name="description" content="Zentta Sua Casa Merece Esse Cuidado. Produtos de qualidade, preços acessíveis e atendimento excepcional. Confira nossas ofertas!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="imagens/simb.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'zentta-yellow': '#FFD700',
+                        'zentta-blue': '#1E3A8A',
+                        'zentta-light-yellow': '#FFF9C4',
+                        'zentta-dark-blue': '#0F172A',
+                        'whatsapp-green': '#25D366'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15); }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .banner-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(.4,0,.2,1), opacity 0.8s cubic-bezier(.4,0,.2,1);
+            opacity: 0;
+            z-index: 1;
+            transform: translateX(100%);
+        }
+        .banner-slide.active {
+            opacity: 1;
+            z-index: 2;
+            transform: translateX(0);
+        }
+        .banner-slide.prev {
+            opacity: 0;
+            z-index: 1;
+            transform: translateX(-100%);
+        }
+        .banner-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+        .banner-btn {
+            background: rgba(30,58,138,0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 2rem;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: background 0.2s;
+        }
+        .banner-btn:hover {
+            background: #1E3A8A;
+        }
+    </style>
 </head>
-<body class="bg-zentta-yellow">
+<body class="bg-zentta-yellow dark:bg-zentta-yellow">
 
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <h1 class="text-4xl font-bold text-zentta-blue"></h1>
-                <img src="imagens/logo-zentta.png" alt="Logo da Zentta" class="w-24 h-auto">
-            </div>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Início</a>
-                <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Produtos</a>
-                <a href="#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Contato</a>
-            </nav>
-            <button id="mobile-menu-btn" class="md:hidden text-zentta-blue">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-        </div>
-    </div>
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-4xl font-bold text-zentta-blue"></h1>
+                <img src="imagens/logo-zentta.png" alt="Logo da Zentta" class="w-24 h-auto">
+            </div>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Início</a>
+                <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Produtos</a>
+                <a href="#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Contato</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-zentta-blue">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </div>
 </header>
 
-    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-40 p-6 flex flex-col items-start space-y-4 mobile-menu">
-        <button id="close-menu-btn" class="self-end text-zentta-blue mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <a href="#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Início</a>
-        <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Produtos</a>
-        <a href="#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Contato</a>
-        </div>
-    <section id="home" class="relative w-full h-[32rem] md:h-[500px] flex items-center justify-center text-center overflow-hidden">
-        <img src="imagens/banner.png" alt="Mascote da Zentta e linha de produtos de limpeza" class="banner-slide active">
-        <img src="imagens/banner2.png" alt="Segundo banner com promoção ou outro produto" class="banner-slide">
-        <div class="banner-controls">
-            <button id="banner-prev" class="banner-btn" aria-label="Anterior">&#8592;</button>
-            <button id="banner-next" class="banner-btn" aria-label="Próximo">&#8594;</button>
-        </div>
-    </section>
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-40 p-6 flex flex-col items-start space-y-4 mobile-menu">
+        <button id="close-menu-btn" class="self-end text-zentta-blue mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Início</a>
+        <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Produtos</a>
+        <a href="#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Contato</a>
+    </div>
+    <section id="home" class="relative w-full h-[32rem] md:h-[500px] flex items-center justify-center text-center overflow-hidden">
+        <img src="imagens/banner.png" alt="Mascote da Zentta e linha de produtos de limpeza" class="banner-slide active">
+        <img src="imagens/banner2.png" alt="Segundo banner com promoção ou outro produto" class="banner-slide">
+        <div class="banner-controls">
+            <button id="banner-prev" class="banner-btn" aria-label="Anterior">&#8592;</button>
+            <button id="banner-next" class="banner-btn" aria-label="Próximo">&#8594;</button>
+        </div>
+    </section>
 
-    <section class="bg-zentta-light-yellow py-4 md:py-6 text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-5xl md:text-6xl font-bold text-zentta-blue mb-6">
-                Sua Casa Merece Esse Cuidado
-            </h2>
-            <p class="text-xl md:text-2xl text-zentta-dark-blue mb-8 max-w-2xl mx-auto">
-                Descubra produtos de alta qualidade para deixar sua casa brilhando.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="produtos.html" class="bg-zentta-yellow text-zentta-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover-scale transition-all">
-                    Ver Produtos
-                </a>
-                <a href="https://wa.me/5511970831534?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Zentta%20e%20quero%20deixar%20meu%20espa%C3%A7o%20impec%C3%A1vel.%20Como%20fa%C3%A7o%20pra%20assinar%20agora%3F" class="bg-whatsapp-green text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-600 hover-scale transition-all">
-                    Falar no Whatsapp
-                </a>
-            </div>
+    <section class="bg-zentta-light-yellow py-4 md:py-6 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl md:text-6xl font-bold text-zentta-blue mb-6">
+                Sua Casa Merece Esse Cuidado
+            </h2>
+            <p class="text-xl md:text-2xl text-zentta-dark-blue mb-8 max-w-2xl mx-auto">
+                Descubra produtos de alta qualidade para deixar sua casa brilhando.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="produtos.html" class="bg-zentta-yellow text-zentta-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover-scale transition-all">
+                    Ver Produtos
+                </a>
+                <a href="https://wa.me/5511970831534?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Zentta%20e%20quero%20deixar%20meu%20espa%C3%A7o%20impec%C3%A1vel.%20Como%20fa%C3%A7o%20pra%20assinar%20agora%3F" class="bg-whatsapp-green text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-600 hover-scale transition-all">
+                    Falar no Whatsapp
+                </a>
+            </div>
 
-            <div class="mt-12">
-                <h3 class="text-3xl font-bold text-zentta-blue mb-8">Categorias de Produtos</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <a href="produtos.html#roupas-higiene-pessoal" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
-                        <img src="imagens/roupas.png" alt="Roupas & Higiene Pessoal" class="w-64 h-64 mb-4 object-contain">
-                        <h4 class="text-xl font-semibold text-zentta-blue">Roupas & Higiene Pessoal</h4>
-                    </a>
-                    <a href="produtos.html#desinfeccao-cloro" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
-                        <img src="imagens/cloro.png" alt="Desinfecção & Cloro" class="w-64 h-64 mb-4 object-contain">
-                        <h4 class="text-xl font-semibold text-zentta-blue">Desinfecção & Cloro</h4>
-                    </a>
-                    <a href="produtos.html#limpeza-geral" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
-                        <img src="imagens/geral.png" alt="Limpeza Geral" class="w-64 h-64 mb-4 object-contain">
-                        <h4 class="text-xl font-semibold text-zentta-blue">Limpeza Geral</h4>
-                    </a>
-                    <a href="produtos.html#limpeza-especializada" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
-                        <img src="imagens/especializada.png" alt="Limpeza Especializada" class="w-64 h-64 mb-4 object-contain">
-                        <h4 class="text-xl font-semibold text-zentta-blue">Limpeza Especializada</h4>
-                    </a>
-                </div>
-            </div>
+            <div class="mt-12">
+                <h3 class="text-3xl font-bold text-zentta-blue mb-8">Categorias de Produtos</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <a href="produtos.html#roupas-higiene-pessoal" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
+                        <img src="imagens/roupas.png" alt="Roupas & Higiene Pessoal" class="w-64 h-64 mb-4 object-contain">
+                        <h4 class="text-xl font-semibold text-zentta-blue">Roupas & Higiene Pessoal</h4>
+                    </a>
+                    <a href="produtos.html#desinfeccao-cloro" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
+                        <img src="imagens/cloro.png" alt="Desinfecção & Cloro" class="w-64 h-64 mb-4 object-contain">
+                        <h4 class="text-xl font-semibold text-zentta-blue">Desinfecção & Cloro</h4>
+                    </a>
+                    <a href="produtos.html#limpeza-geral" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
+                        <img src="imagens/geral.png" alt="Limpeza Geral" class="w-64 h-64 mb-4 object-contain">
+                        <h4 class="text-xl font-semibold text-zentta-blue">Limpeza Geral</h4>
+                    </a>
+                    <a href="produtos.html#limpeza-especializada" class="flex flex-col items-center bg-white rounded-xl p-6 shadow-lg hover-scale cursor-pointer transition-all">
+                        <img src="imagens/especializada.png" alt="Limpeza Especializada" class="w-64 h-64 mb-4 object-contain">
+                        <h4 class="text-xl font-semibold text-zentta-blue">Limpeza Especializada</h4>
+                    </a>
+                </div>
+            </div>
 
-            <section id="ofertas" class="py-16 pb-24 bg-white">
-                <div class="container mx-auto px-4 text-center">
-                    <h3 class="text-4xl font-bold text-zentta-blue mb-12">Planos De Assinatura</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
-                        <div class="product-card bg-zentta-light-yellow rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center">
-                            <img src="imagens/basic.png" alt="Kit Basic Zentta" class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
-                            <div class="p-6 w-full flex flex-col items-center text-center">
-                                <h4 class="text-xl font-semibold text-zentta-blue mb-2">Kit Basic Zentta</h4>
-                                <p class="text-gray-600 mb-4">Itens essenciais para a sua limpeza.</p>
-                                <div class="flex items-center justify-center gap-4 mb-4">
-                                    <span class="text-2xl font-bold text-zentta-blue">R$ 89,90</span>
-                                    <span class="text-xl font-bold text-red-500 line-through">R$ 120,00</span>
-                                </div>
-                                <a href="https://wa.me/5511970831534?text=Ol%C3%A1!%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20Planos%20De%20Assinatura." target="_blank" class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-2 block text-center">
-                                    Comprar
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-card bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-zentta-dark-blue flex flex-col items-center relative">
-                            <span class="absolute top-4 left-1/2 -translate-x-1/2 bg-zentta-dark-blue text-zentta-yellow px-6 py-2 rounded-full text-lg font-extrabold shadow-lg border-2 border-zentta-yellow z-10">
-                                ⭐ Mais Popular
-                            </span>
-                            <img src="imagens/essenza.png" alt="Kit Essenza" class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
-                            <div class="p-6 w-full flex flex-col items-center text-center">
-                                <h4 class="text-xl font-bold text-zentta-dark-blue mb-2">Kit Essenza</h4>
-                                <p class="text-gray-600 mb-4">Máxima eficiência e fragrância exclusiva para sua casa.</p>
-                                <div class="flex items-center justify-center gap-4 mb-4">
-                                    <span class="text-2xl font-bold text-zentta-dark-blue">R$ 114,90</span>
-                                    <span class="text-xl font-bold text-red-500 line-through">R$ 140,00</span>
-                                </div>
-                                <a href="https://wa.me/5511970831534?text=Ol%C3%A1!%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20Planos%20De%20Assinatura." target="_blank" class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-2 block text-center">
-                                    Comprar
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-card bg-zentta-light-yellow rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center">
-                            <img src="imagens/pro.png" alt="Kit Pro Zentta" class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
-                            <div class="p-6 w-full flex flex-col items-center text-center">
-                                <h4 class="text-xl font-semibold text-zentta-blue mb-2">Kit Pro Zentta</h4>
-                                <p class="text-gray-600 mb-4">O plano completo para quem exige o melhor.</p>
-                                <div class="flex items-center justify-center gap-4 mb-4">
-                                    <span class="text-2xl font-bold text-zentta-blue">R$ 149,90</span>
-                                    <span class="text-xl font-bold text-red-500 line-through">R$ 199,90</span>
-                                </div>
-                                <a href="https://wa.me/5511970831534?text=Ol%C3%A1!%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20Planos%20De%20Assinatura." target="_blank" class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-2 block text-center">
-                                    Comprar
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <section id="ofertas" class="py-16 pb-24 bg-white">
+                <div class="container mx-auto px-4 text-center">
+                    <h3 class="text-4xl font-bold text-zentta-blue mb-12">Planos De Assinatura</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+                        <div class="product-card bg-zentta-light-yellow rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center">
+                            <img src="imagens/basic.png" alt="Kit Basic Zentta" class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
+                            <div class="p-6 w-full flex flex-col items-center text-center">
+                                <h4 class="text-xl font-semibold text-zentta-blue mb-2">Kit Basic Zentta</h4>
+                                <p class="text-gray-600 mb-4">Itens essenciais para a sua limpeza.</p>
+                                <div class="flex items-center justify-center gap-4 mb-4">
+                                    <span class="text-2xl font-bold text-zentta-blue">R$ 89,90</span>
+                                    <span class="text-xl font-bold text-red-500 line-through">R$ 120,00</span>
+                                </div>
+                                <a href="https://wa.me/5511970831534?text=Ol%C3%A1!%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20Planos%20De%20Assinatura." target="_blank" class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-2 block text-center">
+                                    Comprar
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-zentta-dark-blue flex flex-col items-center relative">
+                            <span class="absolute top-4 left-1/2 -translate-x-1/2 bg-zentta-dark-blue text-zentta-yellow px-6 py-2 rounded-full text-lg font-extrabold shadow-lg border-2 border-zentta-yellow z-10">
+                                ⭐ Mais Popular
+                            </span>
+                            <img src="imagens/essenza.png" alt="Kit Essenza" class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
+                            <div class="p-6 w-full flex flex-col items-center text-center">
+                                <h4 class="text-xl font-bold text-zentta-dark-blue mb-2">Kit Essenza</h4>
+                                <p class="text-gray-600 mb-4">Máxima eficiência e fragrância exclusiva para sua casa.</p>
+                                <div class="flex items-center justify-center gap-4 mb-4">
+                                    <span class="text-2xl font-bold text-zentta-dark-blue">R$ 114,90</span>
+                                    <span class="text-xl font-bold text-red-500 line-through">R$ 140,00</span>
+                                </div>
+                                <a href="https://wa.me/5511970831534?text=Ol%C3%A1!%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20Planos%20De%20Assinatura." target="_blank" class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-2 block text-center">
+                                    Comprar
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-card bg-zentta-light-yellow rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center">
+                            <img src="imagens/pro.png" alt="Kit Pro Zentta" class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
+                            <div class="p-6 w-full flex flex-col items-center text-center">
+                                <h4 class="text-xl font-semibold text-zentta-blue mb-2">Kit Pro Zentta</h4>
+                                <p class="text-gray-600 mb-4">O plano completo para quem exige o melhor.</p>
+                                <div class="flex items-center justify-center gap-4 mb-4">
+                                    <span class="text-2xl font-bold text-zentta-blue">R$ 149,90</span>
+                                    <span class="text-xl font-bold text-red-500 line-through">R$ 199,90</span>
+                                </div>
+                                <a href="https://wa.me/5511970831534?text=Ol%C3%A1!%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20Planos%20De%20Assinatura." target="_blank" class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-2 block text-center">
+                                    Comprar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <section class="bg-zentta-yellow py-16 mt-16">
-                    <div class="container mx-auto px-4">
-                        <div class="bg-white rounded-3xl shadow-lg p-10 flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
-                            <div class="flex flex-col items-center md:items-start md:w-1/3">
-                                <img src="imagens/logo-zentta2.png" alt="Logo Zentta" class="w-52 mb-0">
-                            </div>
-                            <div class="flex flex-col items-center md:items-start md:w-1/3">
-                                <h3 class="text-2xl font-bold text-zentta-dark-blue mb-4">CONTATO</h3>
-                                <div class="flex items-center text-zentta-dark-blue mb-2">
-                                    <svg class="w-6 h-6 mr-2 text-zentta-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0l-4.243 4.243A8 8 0 1117.657 16.657z"/></svg>
-                                    <span>Mogi das Cruzes - SP</span>
-                                </div>
-                                <div class="flex items-center text-zentta-dark-blue mb-2">
-                                    <svg class="w-6 h-6 mr-2 text-zentta-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
-                                    <span>zentta.ltda@gmail.com</span>
-                                </div>
-                                <div class="flex items-center text-zentta-dark-blue mb-2">
-                                    <svg class="w-6 h-6 mr-2 text-zentta-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A2 2 0 007.5 19h9a2 2 0 001.85-1.3L17 13M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7"></path></svg>
-                                    <span>+55 11 97083-1534</span>
-                                </div>
-                                <a href="https://www.instagram.com/zenttaofc/" target="_blank" class="mt-2 flex items-center gap-2">
-                                    <svg class="w-7 h-7 text-zentta-dark-blue hover:text-zentta-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
-                                    <span class="text-zentta-dark-blue hover:text-zentta-blue text-lg font-medium">Instagram</span>
-                                </a>
-                            </div>
-                            <div class="flex flex-col items-center md:items-start md:w-1/3">
-                                <h3 class="text-2xl font-bold text-zentta-dark-blue mb-4">LINKS ÚTEIS</h3>
-                                <a href="#" class="text-zentta-dark-blue mb-2 hover:text-zentta-blue">Política de Privacidade</a>
-                                <a href="#" class="text-zentta-dark-blue mb-2 hover:text-zentta-blue">Termos de Uso</a>
-                                <a href="#" class="text-zentta-dark-blue mb-2 hover:text-zentta-blue">Perguntas Frequentes</a>
-                                <a href="#" class="text-zentta-dark-blue hover:text-zentta-blue">Sobre nós</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <div class="w-full h-24"></div>
-                <footer id="contato" class="bg-zentta-dark-blue text-white py-12">
-                    <div class="container mx-auto px-4 text-center">
-                        <h4 class="text-2xl font-bold text-zentta-yellow mb-4">Zentta</h4>
-                        <p class="text-gray-300">Sua Casa Merece Esse Cuidado.</p>
-                        <p class="text-gray-400 mt-4">© 2025 Zentta. Todos os direitos reservados.</p>
-                        <p class="text-gray-400 mt-2">Desenvolvido por Danillo Henrique.</p>
-                    </div>
-                </footer>
-            </section>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                // Apenas executa o scroll se o link NÃO for para outra página
-                const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-                
-                // Fecha o menu mobile ao clicar em qualquer link dele
-                const mobileMenu = document.getElementById("mobile-menu");
-                if (mobileMenu.classList.contains('active')) {
-                    // Se o link for para outra página, não precisa do scroll, só fecha o menu
-                    if (!href.startsWith('#')) {
-                        window.location.href = href;
-                    }
-                    mobileMenu.classList.remove('active');
-                }
-            });
-        });
-
-        // Funcionalidade do menu mobile
-        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const closeMenuBtn = document.getElementById("close-menu-btn");
-
-        mobileMenuBtn.addEventListener("click", function() {
-            mobileMenu.classList.add("active");
-        });
-
-        closeMenuBtn.addEventListener("click", function() {
-            mobileMenu.classList.remove("active");
-        });
-
-        // Código do Banner (sem alterações)
-        const slides = document.querySelectorAll('.banner-slide');
-        const prevBtn = document.getElementById('banner-prev');
-        const nextBtn = document.getElementById('banner-next');
-        let current = 0;
-        let timer;
-
-        function showSlide(index, direction = 1) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active', 'prev');
-                if (i === index) {
-                    slide.classList.add('active');
-                } else if (i === (direction === 1 ? index - 1 : index + 1)) {
-                    slide.classList.add('prev');
-                }
-            });
-        }
-
-        function nextSlide() {
-            current = (current + 1) % slides.length;
-            showSlide(current, 1);
-            resetTimer();
-        }
-
-        function prevSlide() {
-            current = (current - 1 + slides.length) % slides.length;
-            showSlide(current, -1);
-            resetTimer();
-        }
-
-        function resetTimer() {
-            clearInterval(timer);
-            timer = setInterval(nextSlide, 4000);
-        }
-
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
-
-        showSlide(current);
-        timer = setInterval(nextSlide, 4000);
-    </script>
-</body>
-</html>
+                <section class="bg-zentta-yellow py-16 mt-16">
+                    <div class="container mx-auto px-4">
+                        <div class="bg-white rounded-3xl shadow-lg p-10 flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
+                            <div class="flex flex-col items-center md:items-start md:w-1/3">
+                                <img src="imagens/logo-zentta2.png" alt="Logo Zentta" class="w-52 mb-0">
+                            </div>
+                            <div class="flex flex-col items-center md:items-start md:w-1/3">
+                                <h3 class="text-2xl font-bold text-zentta-dark-blue mb-4">CONTATO</h3>
+                                <div class="flex items-center text-zentta-dark-blue mb-2">
+                                    <svg class="w-6 h-6 mr-2 text-zentta-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0l-4.243 4.243A8 8 0 1117.657 16.657z"/></svg>
+                                    <span>Mogi das Cruzes - SP</span>
+                                </div>
+                                <div class="flex items-center text-zentta-dark-blue mb-2">
+                                    <svg class="w-6 h-6 mr-2 text-zentta-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
+                                    <span>zentta.ltda@gmail.com</span>
+                                </div>
+                                <div class="flex items-center text-zentta-dark-blue mb-2">
+                                    <svg class="w-6 h-6 mr-2 text-zentta-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A2 2 0 007.5 19h9a2 2 0 0
