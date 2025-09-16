@@ -117,13 +117,13 @@
         <a href="#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Início</a>
         <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Produtos</a>
         <a href="#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Contato</a>
-        </div>
+    </div>
     <section id="home" class="relative w-full h-[32rem] md:h-[500px] flex items-center justify-center text-center overflow-hidden">
-        <img src="imagens/banner.png" alt="Mascote da Zentta e linha de produtos de limpeza" class="banner-slide active hidden md:block">
-        <img src="imagens/banner2.png" alt="Parceria de sucesso Zentta e Harmoniex" class="banner-slide hidden md:block">
+        <img src="imagens/banner.png" alt="Mascote da Zentta e linha de produtos de limpeza" class="banner-slide desktop-banner" data-device="desktop">
+        <img src="imagens/banner2.png" alt="Parceria de sucesso Zentta e Harmoniex" class="banner-slide desktop-banner" data-device="desktop">
         
-        <img src="imagens/mobile1.jpg" alt="Bem-vindo ao futuro da limpeza" class="banner-slide active block md:hidden">
-        <img src="imagens/mobile2.jpg" alt="Parceria de sucesso Zentta e Harmoniex" class="banner-slide block md:hidden">
+        <img src="imagens/mobile1.jpg" alt="Bem-vindo ao futuro da limpeza" class="banner-slide mobile-banner" data-device="mobile">
+        <img src="imagens/mobile2.jpg" alt="Parceria de sucesso Zentta e Harmoniex" class="banner-slide mobile-banner" data-device="mobile">
 
         <div class="banner-controls">
             <button id="banner-prev" class="banner-btn" aria-label="Anterior">&#8592;</button>
@@ -307,18 +307,28 @@
             mobileMenu.classList.remove("active");
         });
 
-        // Código do Banner (sem alterações)
-        const slides = document.querySelectorAll('.banner-slide');
+        // Código do Banner Aprimorado
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        let slides = document.querySelectorAll(`.banner-slide[data-device="${isMobile ? 'mobile' : 'desktop'}"]`);
         const prevBtn = document.getElementById('banner-prev');
         const nextBtn = document.getElementById('banner-next');
         let current = 0;
         let timer;
+        
+        // Inicializa a visibilidade dos banners
+        slides.forEach(slide => slide.style.display = 'none');
+        if (slides.length > 0) {
+            slides[0].style.display = 'block';
+            slides[0].classList.add('active');
+        }
 
         function showSlide(index, direction = 1) {
             slides.forEach((slide, i) => {
                 slide.classList.remove('active', 'prev');
+                slide.style.display = 'none';
                 if (i === index) {
                     slide.classList.add('active');
+                    slide.style.display = 'block';
                 } else if (i === (direction === 1 ? index - 1 : index + 1)) {
                     slide.classList.add('prev');
                 }
@@ -346,7 +356,13 @@
         nextBtn.addEventListener('click', nextSlide);
 
         showSlide(current);
-        timer = setInterval(nextSlide, 4000);
+        if (slides.length > 1) {
+            timer = setInterval(nextSlide, 4000);
+        } else {
+            // Se houver apenas um slide, não precisa de navegação
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        }
     </script>
 </body>
 </html>
