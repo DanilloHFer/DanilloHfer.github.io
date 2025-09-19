@@ -44,7 +44,7 @@
             transition: opacity 0.8s cubic-bezier(.4,0,.2,1);
             opacity: 0;
             z-index: 1;
-            display: none; /* Adicionado para esconder inicialmente */
+            display: none;
         }
         .banner-slide.active {
             opacity: 1;
@@ -77,13 +77,6 @@
         .banner-btn:hover {
             background: #1E3A8A;
         }
-
-        /* CORREÇÃO PARA O ERRO NO MOBILE */
-        @media (max-width: 767px) {
-          header nav {
-            display: none !important;
-          }
-        }
     </style>
 </head>
 <body class="bg-zentta-yellow">
@@ -109,7 +102,7 @@
     </div>
 </header>
 
-    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-40 p-6 flex flex-col items-start space-y-4 mobile-menu">
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-40 p-6 flex flex-col items-start space-y-4 mobile-menu md:hidden">
         <button id="close-menu-btn" class="self-end text-zentta-blue mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -169,7 +162,7 @@
                         <h4 class="text-xl font-semibold text-zentta-blue">Limpeza Especializada</h4>
                     </a>
                 </div>
-            </div>
+              </div>
 
             <section id="ofertas" class="py-16 pb-24 bg-white">
                 <div class="container mx-auto px-4 text-center">
@@ -204,7 +197,7 @@
                                 <a href="https://wa.me/5511970831534?text=Ol%C3%A1!%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20Planos%20De%20Assinatura." target="_blank" class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-2 block text-center">
                                     Comprar
                                 </a>
-                            </div>
+                        </div>
                         </div>
                         <div class="product-card bg-zentta-light-yellow rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center">
                             <img src="imagens/pro.png" alt="Kit Pro Zentta" class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
