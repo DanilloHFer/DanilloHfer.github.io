@@ -351,7 +351,7 @@
                     timer = setInterval(nextSlide, 4000);
                 }
             }
-            
+            
             if (prevBtn) prevBtn.removeEventListener('click', prevSlide);
             if (nextBtn) nextBtn.removeEventListener('click', nextSlide);
 
@@ -361,10 +361,10 @@
                 resetTimer();
             }
         }
-        
+        
         // Chama a função na carga inicial da página
         setupBanners();
-        
+        
         // Adiciona um listener para atualizar os banners quando a janela for redimensionada
         window.addEventListener('resize', setupBanners);
 
