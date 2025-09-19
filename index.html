@@ -77,6 +77,13 @@
         .banner-btn:hover {
             background: #1E3A8A;
         }
+
+        /* CORREÇÃO PARA O ERRO NO MOBILE */
+        @media (max-width: 767px) {
+          header nav {
+            display: none !important;
+          }
+        }
     </style>
 </head>
 <body class="bg-zentta-yellow">
