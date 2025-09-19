@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zentta</title>
-    <meta name="description" content="Zentta Sua Casa Merece Esse Cuidado. Produtos de qualidade, preços acessíveis e atendimento excepcional. Confira nossas ofertas!">
+    <title>Zentta | Produtos de Limpeza Profissional e Assinatura</title>
+    <meta name="description" content="Zentta - Sua Casa Merece Esse Cuidado. Produtos de qualidade, preços acessíveis e atendimento excepcional. Confira nossos planos de assinatura!">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="imagens/simb.png">
     <script>
@@ -20,7 +20,6 @@
                     }
                 }
             }
-        }
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -42,20 +41,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s cubic-bezier(.4,0,.2,1), opacity 0.8s cubic-bezier(.4,0,.2,1);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1);
             opacity: 0;
             z-index: 1;
-            transform: translateX(100%);
+            display: none;
         }
         .banner-slide.active {
             opacity: 1;
             z-index: 2;
-            transform: translateX(0);
-        }
-        .banner-slide.prev {
-            opacity: 0;
-            z-index: 1;
-            transform: translateX(-100%);
+            display: block;
         }
         .banner-controls {
             position: absolute;
@@ -91,7 +85,7 @@
     <div class="container mx-auto px-4 py-4">
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <h1 class="text-4xl font-bold text-zentta-blue"></h1>
+                <h1 class="text-4xl font-bold text-zentta-blue sr-only">Zentta</h1>
                 <img src="imagens/logo-zentta.png" alt="Logo da Zentta" class="w-24 h-auto">
             </div>
             <nav class="hidden md:flex space-x-8 items-center">
@@ -108,7 +102,7 @@
     </div>
 </header>
 
-    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-40 p-6 flex flex-col items-start space-y-4 mobile-menu">
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-40 p-6 flex flex-col items-start space-y-4 mobile-menu md:hidden">
         <button id="close-menu-btn" class="self-end text-zentta-blue mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -119,11 +113,11 @@
         <a href="#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Contato</a>
     </div>
     <section id="home" class="relative w-full h-[32rem] md:h-[500px] flex items-center justify-center text-center overflow-hidden">
-        <img src="imagens/banner.png" alt="Mascote da Zentta e linha de produtos de limpeza" class="banner-slide desktop-banner" data-device="desktop">
-        <img src="imagens/banner2.png" alt="Parceria de sucesso Zentta e Harmoniex" class="banner-slide desktop-banner" data-device="desktop">
+        <img src="imagens/banner.png" alt="Mascote da Zentta e linha de produtos de limpeza" class="banner-slide" data-device="desktop">
+        <img src="imagens/banner2.png" alt="Parceria de sucesso Zentta e Harmoniex" class="banner-slide" data-device="desktop">
         
-        <img src="imagens/mobile1.jpg" alt="Bem-vindo ao futuro da limpeza" class="banner-slide mobile-banner" data-device="mobile">
-        <img src="imagens/mobile2.jpg" alt="Parceria de sucesso Zentta e Harmoniex" class="banner-slide mobile-banner" data-device="mobile">
+        <img src="imagens/mobile1.jpg" alt="Bem-vindo ao futuro da limpeza" class="banner-slide" data-device="mobile">
+        <img src="imagens/mobile2.jpg" alt="Parceria de sucesso Zentta e Harmoniex" class="banner-slide" data-device="mobile">
 
         <div class="banner-controls">
             <button id="banner-prev" class="banner-btn" aria-label="Anterior">&#8592;</button>
@@ -143,7 +137,7 @@
                 <a href="produtos.html" class="bg-zentta-yellow text-zentta-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover-scale transition-all">
                     Ver Produtos
                 </a>
-                <a href="https://wa.me/5511970831534?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Zentta%20e%20quero%20deixar%20meu%20espa%C3%A7o%20impec%C3%A1vel.%20Como%20fa%C3%A7o%20pra%20assinar%20agora%3F" class="bg-whatsapp-green text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-600 hover-scale transition-all">
+                <a href="https://wa.me/5511970831534?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Zentta%20e%20quero%20deixar%20meu%20espa%C3%A7o%20impec%C3%A1vel.%20Como%20fa%C3%A7o%20pra%20assinar%3F" class="bg-whatsapp-green text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-600 hover-scale transition-all">
                     Falar no Whatsapp
                 </a>
             </div>
@@ -168,7 +162,7 @@
                         <h4 class="text-xl font-semibold text-zentta-blue">Limpeza Especializada</h4>
                     </a>
                 </div>
-            </div>
+              </div>
 
             <section id="ofertas" class="py-16 pb-24 bg-white">
                 <div class="container mx-auto px-4 text-center">
@@ -203,7 +197,7 @@
                                 <a href="https://wa.me/5511970831534?text=Ol%C3%A1!%0AGostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20Planos%20De%20Assinatura." target="_blank" class="btn-comprar bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors mt-2 block text-center">
                                     Comprar
                                 </a>
-                            </div>
+                        </div>
                         </div>
                         <div class="product-card bg-zentta-light-yellow rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center">
                             <img src="imagens/pro.png" alt="Kit Pro Zentta" class="w-full h-56 object-contain rounded-xl shadow-lg mx-auto mb-4 bg-white p-2" />
@@ -273,7 +267,6 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                // Apenas executa o scroll se o link NÃO for para outra página
                 const href = this.getAttribute('href');
                 if (href.startsWith('#')) {
                     const target = document.querySelector(href);
@@ -282,10 +275,8 @@
                     }
                 }
                 
-                // Fecha o menu mobile ao clicar em qualquer link dele
                 const mobileMenu = document.getElementById("mobile-menu");
                 if (mobileMenu.classList.contains('active')) {
-                    // Se o link for para outra página, não precisa do scroll, só fecha o menu
                     if (!href.startsWith('#')) {
                         window.location.href = href;
                     }
@@ -307,62 +298,76 @@
             mobileMenu.classList.remove("active");
         });
 
-        // Código do Banner Aprimorado
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
-        let slides = document.querySelectorAll(`.banner-slide[data-device="${isMobile ? 'mobile' : 'desktop'}"]`);
-        const prevBtn = document.getElementById('banner-prev');
-        const nextBtn = document.getElementById('banner-next');
-        let current = 0;
-        let timer;
-        
-        // Inicializa a visibilidade dos banners
-        slides.forEach(slide => slide.style.display = 'none');
-        if (slides.length > 0) {
+        // Código do Banner Corrigido
+        function setupBanners() {
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            let slides = document.querySelectorAll(`.banner-slide[data-device="${isMobile ? 'mobile' : 'desktop'}"]`);
+            const prevBtn = document.getElementById('banner-prev');
+            const nextBtn = document.getElementById('banner-next');
+            let current = 0;
+            let timer;
+           
+            // Esconde todos os banners primeiro
+            document.querySelectorAll('.banner-slide').forEach(slide => slide.style.display = 'none');
+           
+            if (slides.length === 0) {
+                if (prevBtn) prevBtn.style.display = 'none';
+                if (nextBtn) nextBtn.style.display = 'none';
+                return;
+            }
+
             slides[0].style.display = 'block';
             slides[0].classList.add('active');
-        }
 
-        function showSlide(index, direction = 1) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active', 'prev');
-                slide.style.display = 'none';
-                if (i === index) {
-                    slide.classList.add('active');
-                    slide.style.display = 'block';
-                } else if (i === (direction === 1 ? index - 1 : index + 1)) {
-                    slide.classList.add('prev');
+            if (prevBtn) prevBtn.style.display = slides.length > 1 ? 'block' : 'none';
+            if (nextBtn) nextBtn.style.display = slides.length > 1 ? 'block' : 'none';
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    slide.style.display = 'none';
+                    if (i === index) {
+                        slide.classList.add('active');
+                        slide.style.display = 'block';
+                    }
+                });
+            }
+
+            function nextSlide() {
+                current = (current + 1) % slides.length;
+                showSlide(current);
+                resetTimer();
+            }
+
+            function prevSlide() {
+                current = (current - 1 + slides.length) % slides.length;
+                showSlide(current);
+                resetTimer();
+            }
+
+            function resetTimer() {
+                clearInterval(timer);
+                if (slides.length > 1) {
+                    timer = setInterval(nextSlide, 4000);
                 }
-            });
-        }
+            }
+            
+            if (prevBtn) prevBtn.removeEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.removeEventListener('click', nextSlide);
 
-        function nextSlide() {
-            current = (current + 1) % slides.length;
-            showSlide(current, 1);
-            resetTimer();
+            if (slides.length > 1) {
+                if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+                if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+                resetTimer();
+            }
         }
+        
+        // Chama a função na carga inicial da página
+        setupBanners();
+        
+        // Adiciona um listener para atualizar os banners quando a janela for redimensionada
+        window.addEventListener('resize', setupBanners);
 
-        function prevSlide() {
-            current = (current - 1 + slides.length) % slides.length;
-            showSlide(current, -1);
-            resetTimer();
-        }
-
-        function resetTimer() {
-            clearInterval(timer);
-            timer = setInterval(nextSlide, 4000);
-        }
-
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
-
-        showSlide(current);
-        if (slides.length > 1) {
-            timer = setInterval(nextSlide, 4000);
-        } else {
-            // Se houver apenas um slide, não precisa de navegação
-            prevBtn.style.display = 'none';
-            nextBtn.style.display = 'none';
-        }
     </script>
 </body>
 </html>
