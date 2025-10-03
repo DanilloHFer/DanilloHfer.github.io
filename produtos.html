@@ -41,16 +41,6 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
-        .modal-bg {
-            background: rgba(0,0,0,0.6);
-        }
-        .modal-card {
-            animation: modalIn 0.3s;
-        }
-        @keyframes modalIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
     </style>
 </head>
 <body class="bg-zentta-yellow">
@@ -65,9 +55,6 @@
                     <a href="index.html#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Início</a>
                     <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Produtos</a>
                     <a href="index.html#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors">Contato</a>
-                    <a href="carrinho.html">
-                        
-                    </a>
                 </nav>
                 <button id="mobile-menu-btn" class="md:hidden text-zentta-blue">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
@@ -85,7 +72,6 @@
             <a href="index.html#home" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Início</a>
             <a href="produtos.html" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Produtos</a>
             <a href="index.html#contato" class="text-zentta-blue hover:text-zentta-dark-blue font-medium transition-colors w-full">Contato</a>
-            <a href="carrinho.html" class="text-zentta-blue font-medium transition-colors w-full">🛒 Carrinho (<span id="cart-count-mobile">0</span>)</a>
         </div>
     </header>
     <main class="container mx-auto px-4 py-12">
@@ -106,9 +92,8 @@
                         data-nome="Amaciante Blue"
                         data-img="imagens/amaciantes-blue.png"
                         data-desc="Perfume suave e maciez para suas roupas."
-                        data-preco-2l="Link do 2L aqui"
-                        data-preco-5l="Link do 5l aqui"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -122,9 +107,8 @@
                         data-nome="Amaciante Premium"
                         data-img="imagens/amaciantes-premium.png"
                         data-desc="Maciez intensa e fragrância sofisticada."
-                        data-preco-2l="Link do 2l aqui"
-                        data-preco-5l="Link do 5l aqui"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <!-- Lava Roupas -->
@@ -139,9 +123,8 @@
                         data-nome="Lava Roupas Comum"
                         data-img="imagens/lava-roupas-comum.png"
                         data-desc="Limpeza eficiente para o dia a dia."
-                        data-preco-2l="Link do 2l aqui"
-                        data-preco-5l="Link do 5l aqui"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/product/1630799101/18299921598/"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -155,9 +138,8 @@
                         data-nome="Lava Roupas Coco"
                         data-img="imagens/lava-roupas-coco.png"
                         data-desc="Com óleo de coco para roupas delicadas."
-                        data-preco-2l="13.90"
-                        data-preco-5l="29.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -171,9 +153,8 @@
                         data-nome="Lava Roupas Green Power"
                         data-img="imagens/lava-roupas-green.png"
                         data-desc="Limpeza ecológica e poderosa."
-                        data-preco-2l="14.90"
-                        data-preco-5l="32.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <!-- Passa Fácil -->
@@ -188,9 +169,8 @@
                         data-nome="Passa Fácil"
                         data-img="imagens/passa-facil.png"
                         data-desc="Facilita o passar e protege as fibras."
-                        data-preco-2l="11.90"
-                        data-preco-5l="25.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <!-- Sabonetes Líquidos -->
@@ -205,9 +185,8 @@
                         data-nome="Sabonete Líquido Buquê Azul"
                         data-img="imagens/sabonete-buque.png"
                         data-desc="Hidratação e perfume delicado."
-                        data-preco-2l="9.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -221,9 +200,8 @@
                         data-nome="Sabonete Líquido Erva Doce"
                         data-img="imagens/sabonete-erva.png"
                         data-desc="Refrescância e suavidade para a pele."
-                        data-preco-2l="9.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -237,9 +215,8 @@
                         data-nome="Sabonete Líquido Frutas Vermelhas"
                         data-img="imagens/sabonete-frutas.png"
                         data-desc="Fragrância marcante e hidratação."
-                        data-preco-2l="9.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -253,9 +230,8 @@
                         data-nome="Sabonete Líquido Pistache"
                         data-img="imagens/sabonete-pistache.png"
                         data-desc="Nutrição e perfume exótico."
-                        data-preco-2l="9.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
         </div>
@@ -274,9 +250,8 @@
                         data-nome="Água Sanitária"
                         data-img="imagens/agua-sanitaria.png"
                         data-desc="Desinfecção e branqueamento eficiente."
-                        data-preco-2l="7.90"
-                        data-preco-5l="17.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -290,9 +265,8 @@
                         data-nome="Cloro Líquido"
                         data-img="imagens/cloro-liquido.png"
                         data-desc="Limpeza pesada e desinfecção."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -306,9 +280,8 @@
                         data-nome="Cloro Gel"
                         data-img="imagens/cloro-gel.png"
                         data-desc="Gel para limpeza profunda."
-                        data-preco-2l="9.90"
-                        data-preco-5l="21.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -322,9 +295,8 @@
                         data-nome="Cloro Gel Lavanda"
                         data-img="imagens/cloro-gel-lavanda.png"
                         data-desc="Gel com fragrância de lavanda."
-                        data-preco-2l="10.90"
-                        data-preco-5l="23.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <!-- Desinfetantes -->
@@ -339,9 +311,8 @@
                         data-nome="Desinfetante Algas"
                         data-img="imagens/desinfetante-algas.png"
                         data-desc="Fragrância refrescante de algas."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -355,9 +326,8 @@
                         data-nome="Desinfetante Bambu"
                         data-img="imagens/desinfetante-bambu.png"
                         data-desc="Aroma natural e ação antibacteriana."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -371,9 +341,8 @@
                         data-nome="Desinfetante Lavanda"
                         data-img="imagens/desinfetante-lavanda.png"
                         data-desc="Perfume relaxante e limpeza."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -387,9 +356,8 @@
                         data-nome="Desinfetante Talco"
                         data-img="imagens/desinfetante-talco.png"
                         data-desc="Aroma suave e proteção."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -403,9 +371,8 @@
                         data-nome="Desinfetante Romance"
                         data-img="imagens/desinfetante-romance.png"
                         data-desc="Fragrância envolvente e duradoura."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -419,9 +386,8 @@
                         data-nome="Desinfetante Cereja & Avelã"
                         data-img="imagens/desinfetante-cereja.png"
                         data-desc="Aroma sofisticado e proteção."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -435,9 +401,8 @@
                         data-nome="Desinfetante Cheiro de Rico"
                         data-img="imagens/desinfetante-rico.png"
                         data-desc="Fragrância exclusiva e marcante."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
         </div>
@@ -456,9 +421,8 @@
                         data-nome="Detergente"
                         data-img="imagens/detergente.png"
                         data-desc="Limpeza eficiente para louças e superfícies."
-                        data-preco-2l="6.90"
-                        data-preco-5l="14.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -472,9 +436,8 @@
                         data-nome="Limpador Multiuso"
                         data-img="imagens/multiuso.png"
                         data-desc="Versatilidade para todas as superfícies."
-                        data-preco-2l="8.90"
-                        data-preco-5l="18.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <!-- Limpador Álcool -->
@@ -489,9 +452,8 @@
                         data-nome="Limpador Álcool Algas"
                         data-img="imagens/alcool-algas.png"
                         data-desc="Limpeza rápida e perfume refrescante."
-                        data-preco-2l="7.90"
-                        data-preco-5l="16.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -505,9 +467,8 @@
                         data-nome="Limpador Álcool Glamour"
                         data-img="imagens/alcool-glamour.png"
                         data-desc="Limpeza e fragrância sofisticada."
-                        data-preco-2l="7.90"
-                        data-preco-5l="16.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -521,9 +482,8 @@
                         data-nome="Limpador Álcool Cereja & Avelã"
                         data-img="imagens/alcool-cereja.png"
                         data-desc="Limpeza e aroma marcante."
-                        data-preco-2l="7.90"
-                        data-preco-5l="16.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <!-- Limpador Pinho Gel -->
@@ -538,9 +498,8 @@
                         data-nome="Limpador Pinho Gel"
                         data-img="imagens/pinho-gel.png"
                         data-desc="Limpeza profunda e aroma de pinho."
-                        data-preco-2l="8.90"
-                        data-preco-5l="18.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <!-- Limpador Porcelanatos -->
@@ -555,9 +514,8 @@
                         data-nome="Limpador Porcelanatos"
                         data-img="imagens/porcelanato.png"
                         data-desc="Brilho e proteção para pisos delicados."
-                        data-preco-2l="9.90"
-                        data-preco-5l="21.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
         </div>
@@ -576,9 +534,8 @@
                         data-nome="Limpa Pisos"
                         data-img="imagens/limpa-pisos.png"
                         data-desc="Limpeza profunda para todos os tipos de piso."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -592,9 +549,8 @@
                         data-nome="Limpa Vidros"
                         data-img="imagens/limpa-vidros.png"
                         data-desc="Transparência sem manchas."
-                        data-preco-2l="7.90"
-                        data-preco-5l="16.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -608,9 +564,8 @@
                         data-nome="Limpa Pedras"
                         data-img="imagens/limpa-pedras.png"
                         data-desc="Remove sujeiras e manchas de pedras."
-                        data-preco-2l="9.90"
-                        data-preco-5l="21.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -624,9 +579,8 @@
                         data-nome="Limpa Alumínio"
                         data-img="imagens/limpa-aluminio.png"
                         data-desc="Brilho e proteção para utensílios."
-                        data-preco-2l="8.90"
-                        data-preco-5l="19.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
         </div>
@@ -645,9 +599,8 @@
                         data-nome="Desengordurante Limpeza Pesada"
                         data-img="imagens/desengordurante.png"
                         data-desc="Remove gordura pesada de superfícies."
-                        data-preco-2l="12.90"
-                        data-preco-5l="27.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -661,9 +614,8 @@
                         data-nome="Flotador Universal"
                         data-img="imagens/flotador.png"
                         data-desc="Limpeza universal para ambientes profissionais."
-                        data-preco-2l="14.90"
-                        data-preco-5l="31.90"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -677,9 +629,8 @@
                         data-nome="Soluupamm"
                         data-img="imagens/soluupamm.png"
                         data-desc="Solução profissional para limpeza pesada."
-                        data-preco-2l="Link do 2l aqui"
-                        data-preco-5l="Link do 5l aqui"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
@@ -693,27 +644,12 @@
                         data-nome="Lava Autos com Cera"
                         data-img="imagens/lava-autos.png"
                         data-desc="Limpeza e proteção para veículos."
-                        data-preco-2l="Link do 2l aqui"
-                        data-preco-5l="Link do 5l aqui"
-                    >Adicionar ao Carrinho</button>
+                        data-link-shopee="https://shopee.com.br/link-do-produto-aqui"
+                    >Comprar na Shopee</button>
                 </div>
             </div>
         </div>
     </main>
-
-    <!-- Modal de variação -->
-    <div id="modal-bg" class="fixed inset-0 flex items-center justify-center z-50 hidden modal-bg">
-        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full modal-card relative">
-            <button id="close-modal" class="absolute top-4 right-4 text-zentta-blue text-2xl font-bold">&times;</button>
-            <img id="modal-img" src="" alt="" class="w-40 h-40 object-contain mx-auto mb-4">
-            <h4 id="modal-nome" class="text-2xl font-bold text-zentta-blue mb-2 text-center"></h4>
-            <p id="modal-desc" class="text-gray-600 mb-4 text-center"></p>
-            <div class="flex flex-col gap-4">
-                <button id="add-2l" class="bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors w-full"></button>
-                <button id="add-5l" class="bg-zentta-blue text-white px-4 py-2 rounded-lg hover:bg-zentta-dark-blue transition-colors w-full"></button>
-            </div>
-        </div>
-    </div>
 
     <footer class="bg-zentta-dark-blue text-white py-12 mt-16">
         <div class="container mx-auto px-4 text-center">
@@ -723,6 +659,7 @@
             <p class="text-gray-400 mt-2">Desenvolvido por Danillo Henrique Ferreira.</p>
         </div>
     </footer>
+    
     <script>
         // Menu mobile
         const mobileMenuBtn = document.getElementById("mobile-menu-btn");
@@ -736,45 +673,13 @@
             mobileMenu.classList.remove("active");
         });
 
-        // Modal lógica
-        const modalBg = document.getElementById("modal-bg");
-        const closeModal = document.getElementById("close-modal");
-        const modalImg = document.getElementById("modal-img");
-        const modalNome = document.getElementById("modal-nome");
-        const modalDesc = document.getElementById("modal-desc");
-        const add2l = document.getElementById("add-2l");
-        const add5l = document.getElementById("add-5l");
-        let cartCount = 0;
-        const cartCountSpan = document.getElementById("cart-count");
-        const cartCountMobile = document.getElementById("cart-count-mobile");
-
+        // Redirecionamento direto para Shopee
         document.querySelectorAll(".btn-comprar").forEach(btn => {
             btn.addEventListener("click", function() {
-                modalImg.src = btn.dataset.img;
-                modalNome.textContent = btn.dataset.nome;
-                modalDesc.textContent = btn.dataset.desc;
-                add2l.textContent = `Adicionar ${btn.dataset.nome} 2L - R$ ${btn.dataset.preco2l || btn.dataset.preco_2l}`;
-                add5l.textContent = `Adicionar ${btn.dataset.nome} 5L - R$ ${btn.dataset.preco5l || btn.dataset.preco_5l}`;
-                add2l.onclick = () => {
-                    cartCount++;
-                    if (cartCountSpan) cartCountSpan.textContent = cartCount;
-                    if (cartCountMobile) cartCountMobile.textContent = cartCount;
-                    modalBg.classList.add("hidden");
-                };
-                add5l.onclick = () => {
-                    cartCount++;
-                    if (cartCountSpan) cartCountSpan.textContent = cartCount;
-                    if (cartCountMobile) cartCountMobile.textContent = cartCount;
-                    modalBg.classList.add("hidden");
-                };
-                modalBg.classList.remove("hidden");
+                if (btn.dataset.linkShopee) {
+                    window.open(btn.dataset.linkShopee, '_blank');
+                }
             });
-        });
-        closeModal.addEventListener("click", () => {
-            modalBg.classList.add("hidden");
-        });
-        modalBg.addEventListener("click", (e) => {
-            if (e.target === modalBg) modalBg.classList.add("hidden");
         });
     </script>
 </body>
